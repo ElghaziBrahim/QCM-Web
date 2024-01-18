@@ -5,8 +5,9 @@ import Quiz from "./model/quiz.js";
 import User from "./model/users.js";
 import studentAnswers from "./model/studentAnswers.js";
 import jwt from "jsonwebtoken";
+import path from "path";
+
 const secretKey = "your-secret-key";
-const path=require("path")
 
 
 const app = express();
@@ -20,7 +21,13 @@ app.use(cors());
 app.use(express.json());
 
 
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(express.static(path.join(__dirname, 'dist')));
+
 
 
 
